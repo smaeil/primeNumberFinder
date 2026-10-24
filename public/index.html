@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Prime number finder</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <h1>Prime Number Finder</h1>
+
+        <p>Here we are trying to find all prime numbers within given range.</p>
+        <form>
+            <input type="number" name="to" id="to" placeholder="to" value="2">
+            <input type="submit" value="Find Primes">
+        </form>
+
+        <!-- progress bar -->
+         <div id="progressbar-container">
+            <div id="progress"></div>
+         </div>
+
+        <!-- lisiting all numbers -->
+        <p id="display"></p>
+        
+        <script src="main.js" async defer></script>
+    </body>
+</html>
