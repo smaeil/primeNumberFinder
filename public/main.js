@@ -3,11 +3,15 @@ const url = 'http://localhost:7017/number/';
 const form = document.querySelector('form');
 const to = document.querySelector('#to');
 const display = document.querySelector('#display');
+const progress = document.querySelector('#progressbar-container');
 
 // form execution & display
 form.addEventListener('submit',async e => {
     e.preventDefault();
     e.stopPropagation();
+
+    // show progressbar
+    progress.classList.remove('hide');
 
     const results = await getData(to.value);
 
@@ -23,8 +27,6 @@ form.addEventListener('submit',async e => {
     const windowWidth = window.innerWidth / 16;
     const numberOfColumns = Math.floor(windowWidth / (lastDigit.toString().length + 2));
     const numberOfRows = Math.ceil(numberOfCells / numberOfColumns);
-
-    console.log(numberOfCells, windowWidth, numberOfColumns, numberOfRows);
 
     // creating the table
     let table = '<table>';
@@ -63,6 +65,9 @@ form.addEventListener('submit',async e => {
 
     targetedCell.classList.add('highlight');
 
+    // hiding progress bar
+    progress.classList.add('hide');
+
 });
 
 // api functions:
@@ -70,7 +75,6 @@ form.addEventListener('submit',async e => {
 async function getData(number) {
     try {
         const response = await fetch(url + number, {method: 'GET'});
-        console.log(url + number);
 
         if (!response.ok) {
             throw new Error(`Response Status: ${response.status}`);

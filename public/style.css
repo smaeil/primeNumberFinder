@@ -2,6 +2,12 @@
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
+@keyframes loading {
+    0% {background-color: rgb(210, 241, 32); left: 95%;}
+    50% {background-color: red; left: 50%;}
+    100% {background-color: rgb(24, 239, 24); left: 0;}
+}
+
 #progressbar-container {
     border: 1px solid black;
     margin: 1rem;
@@ -10,10 +16,14 @@
 }
 
 #progress {
+    position: relative;
     height: 0.3rem;
     margin: 0;
     width: 2rem;
-    background-color: gray;
+    animation-name: loading;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
 }
 
 #display {
@@ -41,4 +51,11 @@ td {
 .highlight {
     background-color: yellowgreen;
 }
+
+.hide {
+    display: none !important;
+}
+
+
+
 
